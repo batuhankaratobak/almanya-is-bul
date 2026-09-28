@@ -1,0 +1,26 @@
+{
+  "numberRecords": 2,
+  "jvs": [
+    {
+      "id": "MTAwMDEtVEVTVC0xLTE",
+      "title": "Junior Software Developer (m/w/d)",
+      "description": "We need a junior engineer. Requirements and skills for software development in Berlin.",
+      "creationDate": 1750000000000,
+      "lastModificationDate": 1750000000000,
+      "employer": {"name": "EURES Test GmbH"},
+      "locationMap": {"DE": ["DE300"]},
+      "positionScheduleCodes": ["fulltime"],
+      "positionOfferingCode": "directhire",
+      "euresFlag": true
+    },
+    {
+      "id": "MTAwMDEtVEVTVC0yLTE",
+      "title": "Kitchen Chef",
+      "description": "Cook meals in a restaurant kitchen.",
+      "creationDate": 1750000000000,
+      "employer": {"name": "Food AG"},
+      "locationMap": {"DE": ["DE300"]},
+      "positionScheduleCodes": ["fulltime"]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "stellenangebotsTitel": "Junior Softwareentwickler (m/w/d)",
+  "firma": "Beispiel GmbH",
+  "referenznummer": "12265-TEST-1-S",
+  "stellenangebotsBeschreibung": "Wir suchen Verstärkung. Aufgaben und Anforderungen: Kenntnisse in Python. Deutsch B2. Hybrides Arbeiten möglich.",
+  "datumErsteVeroeffentlichung": "2026-08-03",
+  "arbeitszeitVollzeit": true,
+  "stellenlokationen": [
+    {
+      "adresse": {
+        "ort": "Berlin",
+        "region": "BERLIN",
+        "land": "DEUTSCHLAND"
+      }
+    }
+  ]
+}

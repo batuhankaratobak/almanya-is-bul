@@ -1,0 +1,38 @@
+{
+  "ergebnisliste": [
+    {
+      "stellenangebotsTitel": "Junior Softwareentwickler (m/w/d)",
+      "firma": "Beispiel GmbH",
+      "referenznummer": "12265-TEST-1-S",
+      "datumErsteVeroeffentlichung": "2026-08-03",
+      "arbeitszeitVollzeit": true,
+      "stellenlokationen": [
+        {
+          "adresse": {
+            "ort": "Berlin",
+            "region": "BERLIN",
+            "land": "DEUTSCHLAND"
+          }
+        }
+      ]
+    },
+    {
+      "stellenangebotsTitel": "IT Support Mitarbeiter",
+      "firma": "Support AG",
+      "referenznummer": "12265-TEST-2-S",
+      "datumErsteVeroeffentlichung": "2026-08-01",
+      "stellenlokationen": [
+        {
+          "adresse": {
+            "ort": "München",
+            "region": "BAYERN",
+            "land": "DEUTSCHLAND"
+          }
+        }
+      ]
+    }
+  ],
+  "maxErgebnisse": 2,
+  "page": 1,
+  "size": 2
+}

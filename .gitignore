@@ -1,0 +1,24 @@
+# Python
+backend/.venv/
+backend/**/__pycache__/
+*.py[cod]
+backend/data/*.db
+backend/data/*.sqlite
+backend/data/*.sqlite3
+backend/data/*.json
+backend/data/private-backup/
+!backend/data/.gitkeep
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.log
+.env
+.env.*
+!.env.example
+!backend/.env.example

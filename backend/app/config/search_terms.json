@@ -1,0 +1,205 @@
+{
+  "categories": {
+    "software_development": {
+      "de": [
+        "Junior Softwareentwickler",
+        "Softwareentwickler Berufseinsteiger",
+        "Junior Entwickler",
+        "Anwendungsentwickler",
+        "Junior Webentwickler",
+        "Junior Frontend Entwickler",
+        "Junior Backend Entwickler",
+        "Junior Full Stack Entwickler",
+        "Informatiker Softwareentwicklung",
+        "Informatiker Berufseinsteiger"
+      ],
+      "en": [
+        "Junior Software Developer",
+        "Junior Software Engineer",
+        "Software Developer",
+        "Software Engineer",
+        "Graduate Software Engineer",
+        "Entry Level Software Developer",
+        "Junior Frontend Developer",
+        "Junior Backend Developer",
+        "Junior Full Stack Developer"
+      ]
+    },
+    "it_support": {
+      "de": [
+        "IT Support",
+        "IT Support Mitarbeiter",
+        "IT Administrator",
+        "Junior IT Administrator",
+        "Systemadministrator",
+        "Junior Systemadministrator",
+        "Fachinformatiker Systemintegration",
+        "IT Helpdesk",
+        "IT Servicedesk",
+        "Anwendersupport",
+        "Technischer Support",
+        "IT Systemtechniker",
+        "IT Techniker"
+      ],
+      "en": [
+        "IT Support Specialist",
+        "IT Support Engineer",
+        "IT Support Technician",
+        "Technical Support Engineer",
+        "Help Desk Technician",
+        "Service Desk Analyst",
+        "Desktop Support",
+        "Junior System Administrator",
+        "System Administrator"
+      ]
+    },
+    "cybersecurity": {
+      "de": [
+        "IT Sicherheit",
+        "Informationssicherheit",
+        "Junior Informationssicherheit",
+        "Junior Cyber Security",
+        "IT Security Analyst",
+        "SOC Analyst",
+        "Junior SOC Analyst",
+        "Security Operations Center",
+        "IT Security Consultant Junior"
+      ],
+      "en": [
+        "Junior Cyber Security Analyst",
+        "Junior Cybersecurity Analyst",
+        "Cybersecurity Analyst",
+        "Security Analyst",
+        "Junior Security Analyst",
+        "SOC Analyst",
+        "Junior SOC Analyst",
+        "Information Security Analyst",
+        "Junior Information Security Analyst",
+        "Junior Security Engineer",
+        "Junior IT Security Consultant"
+      ]
+    },
+    "qa_testing": {
+      "de": [
+        "Softwaretester",
+        "Junior Softwaretester",
+        "Software Tester",
+        "Test Engineer",
+        "Junior Test Engineer",
+        "QA Engineer",
+        "Junior QA Engineer",
+        "Qualitätssicherung Software",
+        "Mitarbeiter Softwaretest"
+      ],
+      "en": [
+        "Software Tester",
+        "Junior Software Tester",
+        "QA Engineer",
+        "Junior QA Engineer",
+        "Quality Assurance Engineer",
+        "Test Engineer",
+        "Junior Test Engineer",
+        "QA Analyst"
+      ]
+    },
+    "system_administration": {
+      "de": [
+        "Systemadministrator",
+        "Junior Systemadministrator",
+        "IT Administrator",
+        "Junior IT Administrator",
+        "Fachinformatiker Systemintegration",
+        "Netzwerkadministrator",
+        "Junior Netzwerkadministrator",
+        "IT Systemadministrator",
+        "IT Infrastruktur",
+        "IT Systemtechniker"
+      ],
+      "en": [
+        "System Administrator",
+        "Junior System Administrator",
+        "IT Administrator",
+        "Network Administrator",
+        "Junior Network Administrator",
+        "Infrastructure Engineer",
+        "Junior Infrastructure Engineer"
+      ]
+    },
+    "application_support": {
+      "de": [
+        "Anwendungsbetreuer",
+        "Junior Anwendungsbetreuer",
+        "Applikationsbetreuer",
+        "Junior Applikationsbetreuer",
+        "Anwendungssupport",
+        "ERP Support",
+        "IT Anwendersupport"
+      ],
+      "en": [
+        "Application Support",
+        "Application Support Engineer",
+        "Application Support Specialist",
+        "Junior Application Support",
+        "Junior Application Specialist",
+        "ERP Support Specialist"
+      ]
+    },
+    "it_consulting": {
+      "de": [
+        "Junior IT Consultant",
+        "IT Consultant Berufseinsteiger",
+        "Junior IT Berater",
+        "IT Berater",
+        "Junior ERP Consultant",
+        "IT Projektmitarbeiter"
+      ],
+      "en": [
+        "Junior IT Consultant",
+        "Graduate IT Consultant",
+        "Entry Level IT Consultant",
+        "Junior ERP Consultant",
+        "Technical Consultant"
+      ]
+    }
+  },
+  "entry_level": {
+    "de": [
+      "Junior",
+      "Berufseinsteiger",
+      "Absolvent",
+      "Absolventen",
+      "Berufseinstieg",
+      "Einstieg",
+      "Einstiegsposition",
+      "Trainee"
+    ],
+    "en": [
+      "Junior",
+      "Entry Level",
+      "Entry-Level",
+      "Graduate",
+      "Graduate Program",
+      "Early Career",
+      "Trainee"
+    ]
+  },
+  "mvp_refresh_queries": [
+    "Junior Softwareentwickler",
+    "Softwareentwickler",
+    "Junior Software Engineer",
+    "IT Support",
+    "Systemadministrator",
+    "Netzwerkadministrator",
+    "IT Sicherheit",
+    "SOC Analyst",
+    "Data Analyst",
+    "Business Analyst",
+    "Decision Support",
+    "SAP Berater",
+    "Anwendungsbetreuer",
+    "DevOps Engineer",
+    "Softwaretester",
+    "Digitalisierung",
+    "Junior IT Consultant"
+  ]
+}
