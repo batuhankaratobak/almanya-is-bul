@@ -1,63 +1,97 @@
-# Almanya İş Bul
+# Almanya Is Bul
 
-Almanya odaklı, yerel çalışan ve yapay zeka destekli iş ilanı takip uygulaması.
+Almanya odakli, yerel calisan, Ollama destekli kapsamli is ilani takip ve basvuru hazirlik uygulamasi.
 
-Bu proje; Almanya’daki IT ve yazılım odaklı ilanları farklı açık kaynaklardan toplar, ilanları normalize eder, tekrarları ayıklar, aday profiline göre puanlar ve başvuru sürecini tek panelden takip etmeyi kolaylaştırır.
+Bu proje Almanya'daki IT, yazilim ve teknik roller icin acik kaynaklardan ilan toplar, ilanlari normalize eder, tekrar kayitlari ayiklar, aday profiline gore uygunluk puani verir ve basvuru surecini tek panelden takip etmeyi kolaylastirir.
 
-Uygulama kişisel verileri GitHub’a koymadan çalışacak şekilde tasarlanmıştır. CV/profil dosyaları, API anahtarları, kaynak önbellekleri ve SQLite veritabanı kullanıcının kendi makinesinde oluşur ve Git tarafından yok sayılır.
+Uygulama bulut tabanli bir yapay zeka servisine bagimli degildir. Ollama aciksa CV ozeti, uygunluk maddeleri ve on yazi metinleri yerel model ile uretilir. Ollama kapaliysa sistem calismaya devam eder ve kural tabanli guvenli fallback kullanir.
 
-## Özellikler
+## Ekran Goruntuleri
 
-- Almanya odaklı çok kaynaklı ilan yenileme
-- Yerel SQLite veritabanı
-- İlan normalizasyonu ve tekrar kayıt engelleme
-- Aday profiline göre kural tabanlı uygunluk puanı
-- Türkçe arayüz
-- İlan filtreleme, detay görüntüleme ve başvuru durumu takibi
-- İlan linkini açıp durumu başvuruldu olarak işaretleme
-- Aday profili ve CV içeriği düzenleme
-- İlan bazlı A4 Word CV ve ön yazı oluşturma
-- Opsiyonel yerel yapay zeka desteği: Ollama
-- Ollama kapalıysa kural tabanlı güvenli fallback
+### Ozet ve Kaynak Durumu
 
-## Ekranlar
+![Ozet ve kaynak durumu](docs/screenshots/overview.png)
 
-- Özet
-- İlanlar
-- Başvurular
-- Profil
+### Ilan Takibi
 
-## Teknolojiler
+![Ilan listesi ve filtreler](docs/screenshots/jobs.png)
 
-| Katman | Teknoloji |
-|---|---|
-| Backend | Python, FastAPI, SQLAlchemy, SQLite |
-| Frontend | React, Vite, TypeScript, Tailwind CSS |
-| Belge üretimi | `python-docx` |
-| Çeviri | `deep-translator` |
-| Yerel yapay zeka | Ollama HTTP API |
+### Basvuru Sureci
+
+![Basvuru takip ekrani](docs/screenshots/applications.png)
+
+## One Cikanlar
+
+- Almanya odakli cok kaynakli ilan yenileme
+- FastAPI backend ve React + TypeScript frontend
+- Yerel SQLite veritabani
+- Aday profiline gore uygunluk puanlama
+- Ilan normalizasyonu ve tekrar kayit engelleme
+- Kaynak bazli durum takibi
+- Filtreleme, detay goruntuleme ve basvuru durumu yonetimi
+- Ilana ozel A4 Word CV ve on yazi uretimi
+- Ollama ile yerel yapay zeka destegi
+- Ollama kapaliyken kural tabanli fallback
+- Kisisel dosyalari public repoya koymayan gizlilik odakli yapi
+
+## Ollama Destegi
+
+Bu uygulama Ollama'yi repo icine model olarak gommez; kullanicinin kendi bilgisayarinda calisan Ollama servisiyle yerel HTTP API uzerinden konusur. Bu sayede AI destekli metin uretimi bulut servisine zorunlu veri gondermeden yapilabilir.
+
+Ollama acikken uygulama sunlari yapabilir:
+
+- Ilana gore CV ozetini yeniden yazar
+- Uygunluk maddelerini daha net hale getirir
+- Almanya basvurulari icin on yazi taslagi hazirlar
+- Ilan dili ve rol beklentisine gore metni daha profesyonel hale getirir
+- Basvuru hazirligini tek ekrandan yonetmeyi kolaylastirir
+
+Ollama kapaliyken uygulama durmaz. Backend yine calisir, ilanlar listelenir, skorlanir ve belge uretimi kural tabanli metinlerle devam eder.
+
+```bash
+ollama pull llama3.2:3b
+ollama serve
+```
+
+`backend/.env` icinde:
+
+```env
+OLLAMA_ENABLED=true
+OLLAMA_HOST=http://127.0.0.1:11434
+OLLAMA_MODEL=llama3.2:3b
+```
+
+Yapay zeka destegini kapatmak icin:
+
+```env
+OLLAMA_ENABLED=false
+```
 
 ## Mimari
 
 ```text
-İlan Kaynakları
-      ↓
+Ilan Kaynaklari
+      |
+Kaynak Yoneticisi
+      |
 Normalize Etme
-      ↓
-Rol Sınıflandırma
-      ↓
-Profil Bazlı Puanlama
-      ↓
-Tekrar Kayıt Kontrolü
-      ↓
+      |
+Rol Siniflandirma
+      |
+Profil Bazli Puanlama
+      |
+Tekrar Kayit Kontrolu
+      |
 SQLite
-      ↓
+      |
 FastAPI
-      ↓
-React Arayüz
+      |
+React Arayuz
+      |
+Ollama ile Yerel AI Destegi
 ```
 
-## İlan Kaynakları
+## Ilan Kaynaklari
 
 | Kaynak | Durum | Not |
 |---|---|---|
@@ -65,15 +99,15 @@ React Arayüz
 | Arbeitnow | Aktif | Public job-board API |
 | Absolventa | Aktif | Sitemap + JobPosting JSON-LD |
 | EURES | Aktif | Public JSON search API |
-| Jobicy | Aktif | Remote/IT ilan akışı |
-| Remotive | Aktif | Remote ilan akışı |
-| Jooble | API anahtarı varsa aktif | `JOOBLE_API_KEY` gerekir |
-| Make it in Germany | Stub | Ayrı public API bulunmuyor |
-| Jobvector | Stub | Partner/Cloudflare korumalı |
-| GermanTechJobs | Stub | Public API deprecated |
-| Glassdoor | Stub | Manuel link yönlendirme |
+| Jobicy | Aktif | Remote/IT ilan akisi |
+| Remotive | Aktif | Remote ilan akisi |
+| Jooble | API anahtari varsa aktif | `JOOBLE_API_KEY` gerekir |
+| Make it in Germany | Hazirlik | Ayrik public API bulunmadigi icin sinirli destek |
+| Jobvector | Hazirlik | Partner/Cloudflare korumali |
+| GermanTechJobs | Hazirlik | Public API deprecated |
+| Glassdoor | Manuel | Manuel link yonlendirme |
 
-Bu proje korumalı sayfaları agresif şekilde kazımaz, CAPTCHA aşmaya çalışmaz ve otomatik başvuru yapmaz.
+Bu proje korumali sayfalari agresif sekilde kazimaz, CAPTCHA asmaya calismaz ve otomatik basvuru yapmaz.
 
 ## Kurulum
 
@@ -88,7 +122,7 @@ cp .env.example .env
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-API dokümantasyonu:
+API dokumantasyonu:
 
 ```text
 http://127.0.0.1:8000/docs
@@ -96,7 +130,7 @@ http://127.0.0.1:8000/docs
 
 ### Frontend
 
-Başka bir terminal açın:
+Baska bir terminal acin:
 
 ```bash
 cd frontend
@@ -104,122 +138,94 @@ npm install
 npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-Arayüz:
+Arayuz:
 
 ```text
 http://127.0.0.1:5173
 ```
 
-## İlanları Yenileme
+## Kullanim
 
-Arayüzde **İlanları Güncelle** butonuna basabilirsiniz.
+1. Backend ve frontend servislerini baslatin.
+2. Istege bagli olarak Ollama'yi calistirin.
+3. Arayuzde `Ilanlari Guncelle` butonuna basin.
+4. Ilanlari skor, kaynak, lokasyon, dil ve calisma modeline gore filtreleyin.
+5. Uygun ilanlarda CV ve on yazi uretimini kullanin.
+6. Basvuru durumlarini `Yeni`, `Inceleniyor`, `Basvuruldu`, `Mulakat`, `Reddedildi` veya `Teklif` olarak takip edin.
 
-Terminalden:
+Terminalden ilan yenileme:
 
 ```bash
 curl -X POST http://127.0.0.1:8000/jobs/refresh
 ```
 
-İlk çalıştırmada veritabanı boş olabilir. İlanlar yenilendikten sonra `backend/data/jobs.db` dosyası yerel olarak oluşur.
+Ilk calistirmada veritabani bos olabilir. Ilanlar yenilendikten sonra `backend/data/jobs.db` dosyasi yerel olarak olusur.
 
-## Opsiyonel Yerel Yapay Zeka
+## Ortam Degiskenleri
 
-Uygulama Ollama çalışıyorsa CV özeti, uygunluk maddeleri ve ön yazı metnini ilana göre yerel olarak yeniden yazabilir.
-
-```bash
-ollama pull llama3.2:3b
-ollama serve
-```
-
-`backend/.env` içinde:
-
-```env
-OLLAMA_ENABLED=true
-OLLAMA_HOST=http://127.0.0.1:11434
-OLLAMA_MODEL=llama3.2:3b
-```
-
-Yapay zeka desteğini kapatmak için:
-
-```env
-OLLAMA_ENABLED=false
-```
-
-Ollama kapalıysa uygulama çalışmaya devam eder ve kural tabanlı CV/ön yazı üretimini kullanır.
-
-## Ortam Değişkenleri
-
-| Değişken | Amaç |
+| Degisken | Amac |
 |---|---|
-| `JOOBLE_API_KEY` | Jooble kaynağını etkinleştirir |
-| `JOOBLE_MARKETS` | Varsayılan: `DE` |
-| `OLLAMA_ENABLED` | Yerel yapay zeka desteğini açar/kapatır |
-| `OLLAMA_HOST` | Varsayılan: `http://127.0.0.1:11434` |
-| `OLLAMA_MODEL` | Varsayılan: `llama3.2:3b` |
-| `ARBEITSAGENTUR_*` | Arbeitsagentur istek limitleri ve zaman aşımı ayarları |
+| `JOOBLE_API_KEY` | Jooble kaynagini etkinlestirir |
+| `JOOBLE_MARKETS` | Varsayilan: `DE` |
+| `OLLAMA_ENABLED` | Yerel yapay zeka destegini acar/kapatir |
+| `OLLAMA_HOST` | Varsayilan: `http://127.0.0.1:11434` |
+| `OLLAMA_MODEL` | Varsayilan: `llama3.2:3b` |
+| `ARBEITSAGENTUR_*` | Arbeitsagentur istek limitleri ve zaman asimi ayarlari |
 | `ARBEITNOW_*` | Arbeitnow limitleri |
 | `ABSOLVENTA_*` | Absolventa limitleri |
 | `EURES_*` | EURES limitleri |
 
 ## Yerel Dosyalar ve Gizlilik
 
-Bu dosyalar GitHub’a gönderilmemelidir ve `.gitignore` içindedir:
+Public repo kisisel CV, profil, API anahtari veya is ilani veritabani icermemelidir. Bu dosyalar GitHub'a gonderilmez ve `.gitignore` icindedir:
 
 - `backend/.env`
 - `backend/data/jobs.db`
 - `backend/data/candidate_profile.json`
 - `backend/data/cv_profile.json`
 - `backend/data/source_*.json`
+- `backend/data/private-backup/`
 
-Public repo kişisel CV, profil, API anahtarı veya iş ilanı veritabanı içermez.
+Ollama entegrasyonu yerel kurulum icindir. Model ve prompt islemleri kullanicinin kendi makinesinde calisan Ollama servisine gider.
 
 ## Hukuki ve Etik Not
 
-Bu proje bağımsız, açık kaynaklı ve yerel çalışan bir yardımcı araçtır.
+Bu proje bagimsiz, acik kaynakli ve yerel calisan bir yardimci aractir.
 
-- Listelenen iş platformları, kurumlar veya veri sağlayıcılarla resmi bir ortaklık iddia etmez.
-- İlan kaynaklarının kendi kullanım şartlarına uyulması kullanıcının sorumluluğundadır.
-- Public API veya kullanıcı tarafından sağlanan API anahtarları kullanılır.
-- Korumalı sayfalar, CAPTCHA, Cloudflare veya giriş gerektiren içerikler aşılmaya çalışılmaz.
-- Otomatik iş başvurusu yapılmaz.
-- İlanlar kullanıcı tarafından manuel kontrol edilmeli ve başvurular ilgili resmi ilan sayfası üzerinden yapılmalıdır.
+- Listelenen is platformlari, kurumlar veya veri saglayicilarla resmi ortaklik iddia etmez.
+- Ilan kaynaklarinin kendi kullanim sartlarina uyulmasi kullanicinin sorumlulugundadir.
+- Public API veya kullanici tarafindan saglanan API anahtarlari kullanilir.
+- Korumali sayfalar, CAPTCHA, Cloudflare veya giris gerektiren icerikler asilmaz.
+- Otomatik is basvurusu yapilmaz.
+- Ilanlar kullanici tarafindan manuel kontrol edilmeli ve basvurular ilgili resmi ilan sayfasi uzerinden yapilmalidir.
 
-## Proje Yapısı
+## Proje Yapisi
 
 ```text
 .
 ├── README.md
 ├── PROJECT_SPEC.md
 ├── TASKS.md
+├── docs
+│   └── screenshots
 ├── backend
 │   ├── app
-│   │   ├── api
-│   │   ├── config
-│   │   ├── db
-│   │   ├── models
-│   │   ├── schemas
-│   │   ├── services
-│   │   └── sources
 │   ├── data
 │   ├── tests
 │   └── requirements.txt
 └── frontend
     └── src
-        ├── components
-        ├── lib
-        ├── services
-        └── types
 ```
 
-## Yol Haritası
+## Yol Haritasi
 
-- Tek komutla başlatma script’i
-- Ekran görüntüleri ve kısa demo videosu
-- Daha iyi hata mesajları
-- Kaynak bazlı rate-limit ayarlarının arayüzden yönetimi
-- Tauri ile masaüstü uygulama paketleme
-- Daha kapsamlı test dokümantasyonu
+- Tek komutla baslatma script'i
+- Demo video
+- Daha iyi hata mesajlari
+- Kaynak bazli rate-limit ayarlarinin arayuzden yonetimi
+- Tauri ile masaustu uygulama paketleme
+- Daha kapsamli test dokumantasyonu
 
 ## Lisans
 
-Bu proje için MIT lisansı önerilir. Veri kaynaklarının kullanım şartları ayrıca geçerlidir.
+Bu proje MIT lisansi ile yayinlanir. Veri kaynaklarinin kullanim sartlari ayrica gecerlidir.
